@@ -1,5 +1,7 @@
 # Pixel Art Maker Project
 
+https://aleksandrachmurka.github.io/udacity-Pixel-Art-Maker/
+
 ## Table of Contents
 
 * [Instructions](#instructions)
