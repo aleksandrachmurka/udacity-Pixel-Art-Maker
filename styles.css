@@ -36,6 +36,10 @@ h2 {
     margin: 1em 0 0.25em;
 }
 
+h3 {
+    border: 2px solid #f23030;
+}
+
 table,
 tr,
 td {
@@ -55,11 +59,13 @@ td {
     width: 20px;
 }
 
-input[type=number] {
-    width: 6em;
-}
 
 button {
     background-color: red;
     color: white;
+}
+
+[type=color] {
+    height: 6em;
+    width: 6em;
 }

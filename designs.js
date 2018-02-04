@@ -1,11 +1,11 @@
-// VARIABLES
+// variables
 let height = "";
 width = "";
 canvas = "";
 pixelColor = "";
 pickedColor = "";
 
-// MAKE GRID
+// function that makes grid - table with white cells
 function makeGrid(event) {
 	event.preventDefault();
 	canvas = "";
@@ -14,9 +14,9 @@ function makeGrid(event) {
 	height = $("#input_height").val();
 	width = $("#input_width").val();
 
-	for(var i = 1; i<=height; i++) {
+	for(let i = 1; i<=height; i++) {
 		canvas += "<tr>";
-		for (var j = 1; j<= width; j++) {
+		for (let j = 1; j<= width; j++) {
 			canvas += "<td></td>";
 		}
 		canvas += "</tr>\n";
@@ -27,7 +27,7 @@ function makeGrid(event) {
 
 $(".grid").on('click', makeGrid);
 
-//CLEAR CANVAS
+// function changing colour of all cells to white
 function clearCanvas() {
 	$("td").each(function() {
       $(this).css("background-color", "white");
@@ -36,7 +36,7 @@ function clearCanvas() {
 
 $(".clear").on("click", clearCanvas);
 
-// BUCKET
+// function changing colour of all cells to picked color
 function bucket() {
 	pickedColor = $("#colorPicker").val();
 	$("td").each(function() {
@@ -46,17 +46,18 @@ function bucket() {
 
 $(".bucket").on("click", bucket);
 
-//RGB TO HEX
+//rgb to hex converter
 function rgb2hex(rgb){
- rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
- return (rgb && rgb.length === 4) ? "#" +
-  ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
-  ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
-  ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
+	rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+ 	return (rgb && rgb.length === 4) ? "#" +
+	("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+	("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+	("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
 
-//CHANAGE COLOR
+// function changing color of a single cell by clicking
+// option of switching colour back to white works occassionaly- in progress of fixing
 function changeColor() {
 	pixelColor = $("td").css("background-color");
 	pickedColor = $("#colorPicker").val();
